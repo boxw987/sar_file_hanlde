@@ -4,8 +4,8 @@ import random
 import argparse
  
 parser = argparse.ArgumentParser()
-parser.add_argument('--xml_path', default='./sar_data/Official-SSDD-OPEN/BBox_RBox_PSeg_SSDD/voc_style/Annotations', type=str, help='input xml label path')
-parser.add_argument('--txt_path', default='./sar_data/Official-SSDD-OPEN/BBox_RBox_PSeg_SSDD/yolo_style/ImagesSets', type=str, help='output txt label path')
+parser.add_argument('--xml_path', default='./sar_data/MSAR/Annotations', type=str, help='input xml label path')
+parser.add_argument('--txt_path', default='./sar_data/MSAR/yolo_style', type=str, help='output txt label path')
 opt = parser.parse_args()
  
 trainval_percent = 0.9
@@ -29,15 +29,15 @@ file_train = open(txtsavepath + '/train.txt', 'w')
 file_val = open(txtsavepath + '/val.txt', 'w')
  
 for i in list_index:
-    name = total_xml[i][:-4] + '\n'
+    name = total_xml[i][:-4] 
     if i in trainval:
-        file_trainval.write(name)
+        file_trainval.write('./images/'+name+'.jpg'+ '\n')
         if i in train:
-            file_train.write(name)
+            file_train.write('./images/'+name+'.jpg'+ '\n')
         else:
-            file_val.write(name)
+            file_val.write('./images/'+name+'.jpg'+ '\n')
     else:
-        file_test.write(name)
+        file_test.write('./images/'+name+'.jpg'+ '\n')
  
 file_trainval.close()
 file_train.close()
