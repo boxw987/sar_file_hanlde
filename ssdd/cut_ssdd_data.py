@@ -1,4 +1,5 @@
 # 该脚本文件需要修改第11-12行，设置train、val、test的切分的比率
+# 该脚本用于分割SSDD数据集，同时也可用于MSAR数据集等
 import os
 import random
 import argparse
